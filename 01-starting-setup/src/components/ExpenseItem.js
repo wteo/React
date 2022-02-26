@@ -1,10 +1,7 @@
 import ExpenseDate from './ExpenseDate';
-import './ExpenseItem.css'; // usually CSS files for the function are grouped together in the same folder
+import './ExpenseItem.css';
 
-// components in React is just a JS function
-// function is named in large capital to tell React this is a customized HTML.
-// lower cases will be regarded as regular imported HTML elements.
-function ExpenseItem(props) { // call on the paramenter. then, the name of the attributes you have given
+function ExpenseItem(props) {
 
     return (
     <div className="expense-item">
@@ -16,7 +13,5 @@ function ExpenseItem(props) { // call on the paramenter. then, the name of the a
     </div>
     );
 }
-
-// need to export. Otherwise, function only useful in this file.
 
 export default ExpenseItem;
