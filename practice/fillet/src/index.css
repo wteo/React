@@ -1,0 +1,25 @@
+* {
+	box-sizing: border-box;
+}
+
+#top {
+	padding-top: 2%;
+	border-top: 1px solid rgb(224, 206, 146);
+	border-bottom: 1px solid rgb(224, 206, 146);
+	padding-bottom: 2%;
+}
+
+.root {
+	color:rgb(0, 0, 0);
+}
+
+.logo {
+	width: 320px;
+	height: 80px;
+}
+
+figure {
+	margin-left: auto;  
+	margin-right: auto;   
+	text-align: center;
+}

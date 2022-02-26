@@ -1,0 +1,5 @@
+div p {
+	position: fixed right;
+	display: inline;
+	padding-right: 5%;
+}
