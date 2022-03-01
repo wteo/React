@@ -9,12 +9,21 @@ import Image from './components/images/logo.jpg';
 
 
 function App () {
+
+  const links = {
+    navigatorLink       : ["Home", "Eat Out", "Good Food Guide", "Recipes", "Staying In", 
+    "Drinks", "Travel", "Good Food Kitchen"],
+    footerIntLink       : ["About us", "Contact us", "Newsletter", "Good Food Gift Card", 
+    "Advertise with us", "Privacy statement", "Terms of use", "Sitemap", "Feedback"],
+    footerExtLink       : ["The Sydney Morning Herald", "The Age", "Domain", "Home Price Guide"]
+  };
+
   return (
   <div>
     <section id="top">
       <Header/>
       <br/>
-      <Navigator/>
+      <Navigator link={links}/> 
     </section>
     <Summary/>
     <Ingredients/>
@@ -25,7 +34,7 @@ function App () {
     <figure>
       <img src={Image} alt="Good Food logo" className="logo"/>
     </figure>
-    <Footer/>
+    <Footer link={links}/>
   </div>
   );
 }

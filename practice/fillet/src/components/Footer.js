@@ -1,32 +1,26 @@
 import './Footer.css';
 import Link from './Link.js';
 
-function Footer () {
-
-    const links = {
-        internal    : ["About us", "Contact us", "Newsletter", "Good Food Gift Card", 
-        "Advertise with us", "Privacy statement", "Terms of use", "Sitemap", "Feedback"],
-        external    : ["The Sydney Morning Herald", "The Age", "Domain", "Home Price Guide"]
-    };
+function Footer (props) {
 
     return (
         <footer>
             <div className="footer">
-                <Link name={links.internal[0]}/>
-                <Link name={links.internal[1]}/>
-                <Link name={links.internal[2]}/>
-                <Link name={links.internal[3]}/>
-                <Link name={links.internal[4]}/>
-                <Link name={links.internal[5]}/>
-                <Link name={links.internal[6]}/>
-                <Link name={links.internal[7]}/>
-                <Link name={links.internal[8]} className="lastFooter"/>
+                <Link name={props.link.footerIntLink[0]}/>
+                <Link name={props.link.footerIntLink[1]}/>
+                <Link name={props.link.footerIntLink[2]}/>
+                <Link name={props.link.footerIntLink[3]}/>
+                <Link name={props.link.footerIntLink[4]}/>
+                <Link name={props.link.footerIntLink[5]}/>
+                <Link name={props.link.footerIntLink[6]}/>
+                <Link name={props.link.footerIntLink[7]}/>
+                <Link name={props.link.footerIntLink[8]} className="lastFooter"/>
             </div>
             <div className="footer">
-                <Link name={links.external[0]}/>
-                <Link name={links.external[1]}/>
-                <Link name={links.external[2]}/>
-                <Link name={links.external[3]} className="lastFooter"/>
+                <Link name={props.link.footerExtLink[0]}/>
+                <Link name={props.link.footerExtLink[1]}/>
+                <Link name={props.link.footerExtLink[2]}/>
+                <Link name={props.link.footerExtLink[3]} className="lastFooter"/>
             </div>
             <br/>
             <div>
