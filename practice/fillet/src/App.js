@@ -23,7 +23,7 @@ function App () {
     <section id="top">
       <Header/>
       <br/>
-      <Navigator link={links}/> 
+      <Navigator link={links} /> 
     </section>
     <Summary/>
     <Ingredients/>
