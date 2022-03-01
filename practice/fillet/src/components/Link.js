@@ -5,7 +5,7 @@ function Link (props) {
     const link = props.name;
 
     return (
-        <p>{link}</p>
+        <p className="link">{link}</p>
     );
 }
 
