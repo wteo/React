@@ -12,7 +12,7 @@ function Form () {
 
     return (
         <form>
-            <label for="comment">Comment(s)</label>
+            <label htmlFor="comment">Comment(s)</label>
             <br/>
             <textarea onKeyPress={keyPressHandler} name="comment" maxLength="500" rows="5" cols = "40"/>
             <br/>
