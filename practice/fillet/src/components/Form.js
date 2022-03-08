@@ -4,19 +4,24 @@ function Form () {
 
     const [enteredComment, setComment] = useState("");
 
-    const keyPressHandler = (event) => {
-        if (event.key === "Enter") {
-            setComment(event.target.value);   
-        }
+    const changeHandler = (event) => {
+        setComment(event.target.value); 
     };
 
+    const submitHandler = (event) => {
+        event.preventDefault();
+        setComment("");
+    }
+
     return (
-        <form>
+        <form onSubmit={submitHandler} >
             <label htmlFor="comment">Comment(s)</label>
             <br/>
-            <textarea onKeyPress={keyPressHandler} name="comment" maxLength="500" rows="5" cols = "40"/>
+            <textarea value={enteredComment} onChange={changeHandler} name="comment" maxLength="500" rows="5" cols = "40"/>
             <br/>
-            <input type="submit" value="Submit"/>
+            <input 
+            type="submit" 
+            value="Submit"/>
             <br/>
             <br/>
             <p>{enteredComment}</p>
