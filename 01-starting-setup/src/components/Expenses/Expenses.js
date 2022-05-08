@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import './Expenses.css';
 import ExpensesFilter from "../ExpenseFilter/ExpensesFilter";
-import ExpenseItem from './ExpenseItem';
+import ExpensesList from './ExpensesList';
 import Card from '../UI/Card';
 
 function Expenses(props) {
@@ -23,17 +23,7 @@ function Expenses(props) {
                 select={filteredYear} 
                 onFilteredYear={filteredYearHandler}
             />
-            {filteredExpenses.map(expense => {
-                return (
-                <ExpenseItem 
-                    key={expense.id}
-                    title={expense.title} 
-                    amount={expense.amount} 
-                    date={expense.date} 
-                />
-                );
-                })
-            }
+            <ExpensesList items={filteredExpenses} />            
         </Card>
     );
 
