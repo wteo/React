@@ -12,9 +12,6 @@ function App() {
     // We should of course check email and password
     // But it's just a dummy/ demo anyways
     localStorage.setItem("isLoggedIn", "1");
-    // storage mechanism, a global object, built into the browser independent of React
-    // first param is the key, second, value (which must be in a string)
-    // You can find key-value pair in dev tool > Application - storage - Local Storage - localHost
     setIsLoggedIn(true);
   };
 
@@ -23,10 +20,9 @@ function App() {
 
     if (storedUserLoggedInInformation === "1") {
       setIsLoggedIn(true);
-    } // this would create an infinite loop. This is why we need useEffect() here.
+    } 
   
-  }, []); // an empty dependencies would only run code once.
-  // useEffect() only runs after everything else has run.
+  }, []); 
 
   const logoutHandler = () => {
     localStorage.removeItem("isLoggedIn");

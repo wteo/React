@@ -21,10 +21,8 @@ const Login = (props) => {
 
     return () => {
       clearTimeout(identifier);
-    }; // This clean up function will run before the timer. So, we can use to create debounce function
+    }; 
   }, [enteredEmail, enteredPassword]);
-  // removing the dependencies would make the useEffect() hook no different that not using it at all.
-  // This also ensure that we have every code in a single place.
 
   const emailChangeHandler = (event) => {
     setEnteredEmail(event.target.value);
