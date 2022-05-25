@@ -26,6 +26,7 @@ function App() {
     } // this would create an infinite loop. This is why we need useEffect() here.
   
   }, []); // an empty dependencies would only run code once.
+  // useEffect() only runs after everything else has run.
 
   const logoutHandler = () => {
     localStorage.removeItem("isLoggedIn");
