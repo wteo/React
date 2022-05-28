@@ -29,18 +29,18 @@ const passwordReducer = (state, action) => {
   if (action.type === "PASSWORD_INPUT") {
     return {
       value   : action.val,
-      isValid : action.val
+      isValid : action.val.trim().length > 6
     };
   }
   if (action.type === "INPUT_BLUR") {
     return {
-      value   : state.val,
-      isValid : state.val.trim().length > 6
+      value   : state.value,
+      isValid : state.value.trim().length > 6
     };
   }
   return {
     value   : "",
-    isValid : null 
+    isValid : false 
   };
 };
 // This reducer function accepts two parameters.
@@ -62,7 +62,7 @@ const Login = (props) => {
 
   const [passwordState, dispatchpassword] = useReducer(passwordReducer, {
     value   : "",
-    isValid : null 
+    isValid : null
   });
 
   /*
@@ -92,14 +92,9 @@ const Login = (props) => {
 
   const passwordChangeHandler = (event) => {
     dispatchpassword({ type : "PASSWORD_INPUT", val: event.target.value });
-
-    setFormIsValid(
-      event.target.value.trim().length > 6 && emailState.isValid
-    );
   };
 
   const validateEmailHandler = () => {
-    // setEmailIsValid(emailState.isValid);
     dispatchEmail({type: "INPUT_BLUR"});
   };
 
@@ -131,7 +126,7 @@ const Login = (props) => {
         </div>
         <div
           className={`${classes.control} ${
-            passwordState.value === false ? classes.invalid : ''
+            passwordState.isValid === false ? classes.invalid : ''
           }`}
         >
           <label htmlFor="password">Password</label>
