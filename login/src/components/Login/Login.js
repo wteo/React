@@ -1,4 +1,4 @@
-import React, { useState, useReducer } from 'react';
+import React, { useState, useEffect, useReducer } from 'react';
 
 import Card from '../UI/Card/Card';
 import classes from './Login.module.css';
@@ -65,33 +65,38 @@ const Login = (props) => {
     isValid : null
   });
 
-  /*
+  const { isValid: emailIsValid } = emailState;
+  const { isValid : passwordIsValid } = passwordState;
+  // use object destructuring to ensure validity of email and password only run once in useEffect()
+  // This is to ensure that we only pass specific properties instead of the entire object as an dependency
 
   useEffect(() => {
     const identifier = setTimeout(() => {
       console.log("Checking for validity");
       setFormIsValid(
-        enteredEmail.includes('@') && enteredPassword.trim().length > 6
+        emailIsValid && passwordIsValid
       );
     }, 500);
 
     return () => {
       clearTimeout(identifier);
     }; 
-  }, [enteredEmail, enteredPassword]);
+  }, [emailIsValid, passwordIsValid]
+  );
 
-  */
 
   const emailChangeHandler = (event) => {
     dispatchEmail({type: "USER_INPUT", val: event.target.value}); // the key "type" is an identifier and "val" is a payload, which stores user's input data
 
-    setFormIsValid(
-      event.target.value.includes("@") && passwordState.isValid
-    );
+    // setFormIsValid(
+    //   event.target.value.includes("@") && passwordState.isValid
+    // );
   };
 
   const passwordChangeHandler = (event) => {
     dispatchpassword({ type : "PASSWORD_INPUT", val: event.target.value });
+  
+    // setFormIsValid(emailState.isValid && event.target.value.trim().length > 6);
   };
 
   const validateEmailHandler = () => {
