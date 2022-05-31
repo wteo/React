@@ -4,8 +4,6 @@ import Card from '../UI/Card/Card';
 import classes from './Login.module.css';
 import Button from '../UI/Button/Button';
 
-// won't need any data that's generated inside of the component function. 
-// Hence, this reducer function can be created outside of this component function.
 const emailReducer = (state, action) => {
   if (action.type === "USER_INPUT") {
     return {
@@ -43,10 +41,6 @@ const passwordReducer = (state, action) => {
     isValid : false 
   };
 };
-// This reducer function accepts two parameters.
-// The first showing the last state snapshot.
-// The second, the action that was dispatched.
-// returns a new state which can be an object.
 
 const Login = (props) => {
   // const [enteredEmail, setEnteredEmail] = useState('');
@@ -86,7 +80,7 @@ const Login = (props) => {
 
 
   const emailChangeHandler = (event) => {
-    dispatchEmail({type: "USER_INPUT", val: event.target.value}); // the key "type" is an identifier and "val" is a payload, which stores user's input data
+    dispatchEmail({type: "USER_INPUT", val: event.target.value}); 
 
     // setFormIsValid(
     //   event.target.value.includes("@") && passwordState.isValid
