@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
-import Products from './Products/Products';
-import Cart from './Cart/Cart';
+import Products from './components/Products/Products';
+import Cart from './components/Cart/Cart';
 import styles from './App.module.css';
 
 function App() {
@@ -37,7 +37,6 @@ function App() {
       return updatedItems;
     })
   }
-  
   
   const removeItemHandler = (itemId) => {
     setEnteredItem(prevItems => {
