@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import Products from './components/Products/Products';
 import Cart from './components/Cart/Cart';
 import styles from './App.module.css';
+import AuthContext from './store/auth-context';
 
 function App() {
 
@@ -47,10 +48,12 @@ function App() {
 
   return (
     <div className={styles.background}>
-      <Products 
-        data={products} 
-        onAddItem={addItemHandler} 
-      />
+      <AuthContext.Provider value={{ discount: "50% off!" }}>
+        <Products 
+          data={products} 
+          onAddItem={addItemHandler} 
+        />
+      </AuthContext.Provider>
       <Cart 
         item={enteredItem} 
         onRemoveItem={removeItemHandler} 

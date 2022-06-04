@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import styles from './Product.module.css';
+import AuthContext from '../../store/auth-context';
 
 function Product (props) {
 
@@ -15,6 +16,8 @@ function Product (props) {
         props.onAddItem(item);
     }
 
+    const context = useContext(AuthContext);
+
     return (
         <div className={styles.item}>
             <div className={styles.outline}>
@@ -25,6 +28,7 @@ function Product (props) {
                 onClick={addItemHandler}
                 >Add to Cart
                 </button>
+                <h2>{context.discount}</h2>
             </div>
             <br/>
             <div className={styles.description}>
