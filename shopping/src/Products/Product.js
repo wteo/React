@@ -1,5 +1,7 @@
 import React from 'react';
 
+import styles from './Product.module.css';
+
 function Product (props) {
 
     const item = {
@@ -14,16 +16,23 @@ function Product (props) {
     }
 
     return (
-        <React.Fragment>
-            <h3>{props.title}</h3>
-            <p>{props.description}</p>
-            <p>{props.price.toFixed(2)}</p>
-            <button 
+        <div className={styles.item}>
+            <div className={styles.outline}>
+                <h3>{props.title}</h3>
+                <h3>${props.price.toFixed(2)}</h3>
+                <button 
                 type="submit" 
                 onClick={addItemHandler}
-            >Add to Cart
-            </button>
-        </React.Fragment>
+                >Add to Cart
+                </button>
+            </div>
+            <br/>
+            <div className={styles.description}>
+                <img src={props.imageLink} alt="dress" />
+                <p>{props.description}</p>
+            </div>
+            <br/>
+        </div>
     );
 }
 

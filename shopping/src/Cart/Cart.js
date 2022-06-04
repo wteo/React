@@ -1,6 +1,7 @@
 import React from 'react';
 
 import RemoveButton from './RemoveButton';
+import styles from './Cart.module.css';
 
 function Cart(props) {
 
@@ -14,9 +15,9 @@ function Cart(props) {
 
     return (
         <React.Fragment>
-            <h3>Your Cart</h3>
+            <h1>Your Cart</h1>
             {props.item.length === 0 && <p>Add Items here.</p>}
-            <ul>
+            <ul className={styles.list}>
                 {
                     props.item.map(item => {
                         return (

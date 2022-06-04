@@ -1,0 +1,17 @@
+.background {
+    background-color: beige;
+    padding: 20px;
+}
+
+button {
+    display: inline-block;
+    outline: 0;
+    cursor: pointer;
+    text-align: center;
+    border: 0;
+    padding: 7px 16px;
+    color: #ffffff;
+    background: #323232;
+    font-size: 14px;
+}
+
