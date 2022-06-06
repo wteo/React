@@ -5,18 +5,11 @@ import AuthContext from '../../store/auth-context';
 
 function Product (props) {
 
-    const item = {
-        title           : props.title,
-        description     : props.description,
-        price           : props.price,
-    };
-
-    const addItemHandler = (event) => {
-        event.preventDefault();
-        props.onAddItem(item);
-    }
-
     const context = useContext(AuthContext);
+
+    const onAddItemHandler = () => {
+        context.onAddItem(props);
+    }
 
     return (
         <div className={styles.item}>
@@ -25,10 +18,9 @@ function Product (props) {
                 <h3>${props.price.toFixed(2)}</h3>
                 <button 
                 type="submit" 
-                onClick={addItemHandler}
+                onClick={onAddItemHandler}
                 >Add to Cart
                 </button>
-                <h2>{context.discount}</h2>
             </div>
             <br/>
             <div className={styles.description}>

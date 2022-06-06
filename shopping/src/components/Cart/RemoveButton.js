@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
+
+import AuthContext from '../../store/auth-context';
 
 function RemoveButton(props) {
 
-    const removeItemHandler = (event) => {
-        event.preventDefault();
-        props.onRemoveItem(props.id)
+    const context = useContext(AuthContext);
+
+    const removeItemHandler = () => {
+        context.onRemoveItem(props.id);
     }
-    
+
     return <button type="submit" onClick={removeItemHandler}>Remove</button>;
 }
 

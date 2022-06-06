@@ -1,31 +1,34 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import RemoveButton from './RemoveButton';
+import AuthContext from '../../store/auth-context';
 import styles from './Cart.module.css';
 
-function Cart(props) {
-    
+function Cart() {
+
+    const context = useContext(AuthContext);
+
     let sum = 0;
 
-    for (let item of props.item) {
+    for (let item of context.list) {
         sum = sum + item.price;
     }
 
     return (
         <React.Fragment>
             <h1>Your Cart</h1>
-            {props.item.length === 0 && <p>Add Items here.</p>}
+            {context.list.length === 0 && <p>Add Items here.</p>}
             <ul className={styles.list}>
-                {props.item.map(item => {
+                {context.list.map(item => {
                     return (
                         <li key={item.id}>
                             {item.title} - ${item.price.toFixed(2)}
-                            <RemoveButton id={item.id} onRemoveItem={props.onRemoveItem} />
+                            <RemoveButton id={item.id}/>
                         </li>
                     );
                 })}
             </ul>
-            {props.item.length > 0 && <h3>Total: ${sum.toFixed(2)}</h3>}
+            {context.list.length > 0 && <h3>Total: ${sum.toFixed(2)}</h3>}
         </React.Fragment>
     );
 }
