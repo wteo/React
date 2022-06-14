@@ -48,7 +48,8 @@ function App() {
   async function addMovieHandler(movie) {
     const response = await fetch(url, {
       method: 'POST',
-      body: JSON.stringify(movie),
+      body: JSON.stringify(movie), 
+      // this picks up the data posted in the form
       headers: {
         'Content-Type' : 'application/json'
       }
