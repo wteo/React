@@ -21,7 +21,7 @@ const SimpleInput = (props) => {
     event.preventDefault(); // this prevents HTTP request getting sent
     
     setEnteredNameTouched(true);
-    
+
     if (enteredName.trim() === '') {
       setenteredNameIsValid(false);
       return;
@@ -35,9 +35,9 @@ const SimpleInput = (props) => {
     setEnteredName("");
   };
 
-  const nameInputIsValid = !enteredNameIsValid && enteredNameTouched;
+  const nameInputIsInvalid = !enteredNameIsValid && enteredNameTouched;
 
-  const nameInputClasses = nameInputIsValid ? 'form-control invalid' : 'form-control';
+  const nameInputClasses = nameInputIsInvalid ? 'form-control invalid' : 'form-control';
 
   return (
     <form onSubmit={formSubmissionHandler}>
@@ -50,7 +50,7 @@ const SimpleInput = (props) => {
           onChange={nameInputChangeHandler} 
           value={enteredName}
         />
-      {enteredNameIsValid && <p className="error-text">Name must not be empty.</p>}
+      {nameInputIsInvalid && <p className="error-text">Name must not be empty.</p>}
       </div>
       <div className="form-actions">
         <button>Submit</button>
