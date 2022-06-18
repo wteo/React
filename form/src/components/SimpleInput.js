@@ -4,7 +4,7 @@ const SimpleInput = (props) => {
   
   const nameInputRef = useRef();
   const [enteredName, setEnteredName] = useState('');
-  const [enteredNameIsValid, setenteredNameIsValid] = useState(false);
+  const [enteredNameIsValid, setEnteredNameIsValid] = useState(false);
   const [enteredNameTouched, setEnteredNameTouched] = useState(false);
 
   useEffect(() => {
@@ -15,6 +15,21 @@ const SimpleInput = (props) => {
 
   const nameInputChangeHandler = event => {
     setEnteredName(event.target.value);
+
+    if (event.target.value.trim() !== '') {
+      // put event.target.value instead of enteredName state as state is not processed immediately.
+      // Hence, not ideal if want validation at every key stroke.
+      setEnteredNameIsValid(true);
+    }
+  };
+
+  const nameInputBlurHandler = event => {
+    setEnteredNameTouched(true);
+    
+    if (enteredName.trim() === '') {
+      setEnteredNameIsValid(false);
+    }
+
   };
 
   const formSubmissionHandler = event => {
@@ -23,11 +38,11 @@ const SimpleInput = (props) => {
     setEnteredNameTouched(true);
 
     if (enteredName.trim() === '') {
-      setenteredNameIsValid(false);
+      setEnteredNameIsValid(false);
       return;
     }
 
-    setenteredNameIsValid(true);
+    setEnteredNameIsValid(true);
     
     console.log(enteredName);
     const enteredValue = nameInputRef.current.value;
@@ -48,6 +63,7 @@ const SimpleInput = (props) => {
           type='text' 
           id='name' 
           onChange={nameInputChangeHandler} 
+          onBlur = {nameInputBlurHandler}
           value={enteredName}
         />
       {nameInputIsInvalid && <p className="error-text">Name must not be empty.</p>}
