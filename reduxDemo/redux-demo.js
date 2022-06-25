@@ -4,9 +4,21 @@ const redux = require('redux');
 const counterReducer = (state = { counter: 0 }, action) => {
     // Counter will be undefined when store is first initialized.
     // This is why we need to give state parameter a default value.
-    return {
-        counter: state.counter + 1
-    };
+    if (action.type === 'increment') {    
+        // When using Redux, goal is to do different things inside of the reducer for different actions.
+        // This is why you get action as a second argument.
+        // This is done by identifying the action, then returning a new state.
+        return {
+            counter: state.counter + 1
+        };
+    }
+    if (action.type === 'decrement') {    
+        return {
+            counter: state.counter - 1
+        };
+    }
+
+    return state;
 };
 // Note: 
 // reducer func always receives two parameters: 
@@ -41,3 +53,6 @@ store.dispatch({ type: 'increment' }); // { counter: 2}
 // This causes the reducer function to run again.
 // an action is a Javascript object with a type property, which acts as an identifier.
 // This identifier should have a unique string.
+
+store.dispatch({ type: 'decrement' });
+// You can dispatch more than one action.
