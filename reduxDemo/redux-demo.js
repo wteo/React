@@ -55,4 +55,4 @@ store.dispatch({ type: 'increment' }); // { counter: 2}
 // This identifier should have a unique string.
 
 store.dispatch({ type: 'decrement' });
-// You can dispatch more than one action.
+// You can dispatch more than once.
