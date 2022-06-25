@@ -1,4 +1,4 @@
-import Redux from 'react';
+import Redux from 'redux';
 
 // Reducer
 const counterReducer = (state = { counter: 0 }, action) => {
