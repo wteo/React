@@ -1,0 +1,17 @@
+{
+  "name": "reduxdemo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "redux-demo.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon redux-demo.js"
+  },
+  "keywords": [],
+  "author": "Wendy",
+  "license": "ISC",
+  "dependencies": {
+    "nodemon": "^2.0.18",
+    "redux": "^4.2.0"
+  }
+}
