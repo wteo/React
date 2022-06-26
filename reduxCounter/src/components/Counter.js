@@ -1,19 +1,14 @@
 import { useSelector, useDispatch, connect } from 'react-redux';
-// useSelector - allows you to select a specific data in the store
-// connect - used for class-based components
-// useDispatch - dispatches an action
 
 import classes from './Counter.module.css';
 
 const Counter = () => {
 
-  // Dispatch
-  const dispatch = useDispatch();
-
   // Suscription
   const counter = useSelector(state => state.counter);
-  // need to pass a function within the paramenter of useSelector
-  // with useSelector(), React-Redux automatically sets up a suscription to the store for this component
+
+  // Dispatch
+  const dispatch = useDispatch();
 
   const toggleCounterHandler = () => {};
 

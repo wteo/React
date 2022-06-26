@@ -1,6 +1,6 @@
 import { createStore } from 'redux';
 
-// Reducer
+// REDUCER
 const counterReducer = (state = { counter: 0 }, action) => {
     if (action.type === 'increment') {
         return {
@@ -15,9 +15,9 @@ const counterReducer = (state = { counter: 0 }, action) => {
     return state;
 };
 
-// Store
+// STORE
 const store = createStore(counterReducer);
 
 export default store;
-// This allows other components to have access to the store.
+// In React, you need first to export store. 
 // The subscription and dispatch will be placed in various components.
