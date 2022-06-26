@@ -1,9 +1,7 @@
-import { Component } from 'react';
-import { useSelector, useDispatch, connect } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import classes from './Counter.module.css';
 
-/*
 const Counter = () => {
 
   // Suscription
@@ -34,8 +32,10 @@ const Counter = () => {
     </main>
   );
 };
-*/
 
+export default Counter;
+
+/*
 class Counter extends Component {
   incrementHandler() {
     this.props.increment();
@@ -60,14 +60,12 @@ class Counter extends Component {
   }
 }
 
-// equivalent to useSelector()
 const mapStateToProps = state => {
   return {
     counter: state.counter
   };
 };
 
-// equivalent to useDispatch()
 const mapDispatchToProps = dispatch => {
   return {
     increment: () => dispatch({ type: 'increment' }),
@@ -76,6 +74,4 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Counter);
-// connect takes in two parameters in the form of functions.
-// i. The first takes in the state function
-// ii. Second takes in the dispatch action function
+*/
