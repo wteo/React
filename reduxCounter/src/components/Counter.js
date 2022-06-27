@@ -14,6 +14,7 @@ const Counter = () => {
 
   const toggleCounterHandler = () => {
     dispatch(counterActions.toggleCounter());
+    // Dispatching an action here allows you to access the various reducers within the slice.
   };
 
   const incrementHandler = () => {
@@ -22,6 +23,8 @@ const Counter = () => {
 
   const increaseHandler = () => {
     dispatch(counterActions.increase(10));
+    // to pass a payload, include the value within the parameter of the reducer function
+    // default property is "payload". Hence, need to include payload if want to access values here.
   }
 
   const decrementHandler = () => {

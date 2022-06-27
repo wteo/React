@@ -31,7 +31,9 @@ const store = configureStore({
     reducer: counterSlice.reducer
 });
 
+// ACTION
 export const counterActions = counterSlice.actions;
+// This will automatically create action objects/indetifiers
 
 export default store;
 // In React, you need first to export store. 
