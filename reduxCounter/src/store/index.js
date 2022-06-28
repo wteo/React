@@ -12,5 +12,3 @@ const store = configureStore({
 });
 
 export default store;
-// In React, you need first to export store. 
-// The subscription and dispatch will be placed in various components.

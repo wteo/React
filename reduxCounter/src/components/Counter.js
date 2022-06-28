@@ -7,6 +7,7 @@ const Counter = () => {
 
   // Suscription
   const counter = useSelector(state => state.counter.counter);
+  // Because potential, there could be more than one slices saved in the store now, you need to first call on the slice object and then, call on the state you want.
   const showCounter = useSelector(state => state.counter.showCounter);
 
   // Dispatch

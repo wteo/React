@@ -1,4 +1,5 @@
-// Slices (a.k.a reducer function.)
+
+// Reducer Function
 
 import { createSlice } from '@reduxjs/toolkit';
 
@@ -26,6 +27,7 @@ const counterSlice = createSlice({
     }
 });
 
+// ACTION
 export const counterActions = counterSlice.actions;
 
 export default counterSlice.reducer;
